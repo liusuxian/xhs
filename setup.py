@@ -1,3 +1,12 @@
+'''
+Author: liusuxian 382185882@qq.com
+Date: 2024-10-22 21:43:34
+LastEditors: liusuxian 382185882@qq.com
+LastEditTime: 2024-10-22 23:24:09
+Description: 
+
+Copyright (c) 2024 by liusuxian email: 382185882@qq.com, All Rights Reserved.
+'''
 import os
 
 from setuptools import setup
@@ -22,7 +31,7 @@ setup(
     author_email=about["__author_email__"],
     url=about["__url__"],
     license=about["__license__"],
-    packages=["xhs"],
+    packages=["xhsclient"],
     install_requires=["requests", "lxml"],
     keywords="xhs crawl",
     include_package_data=True,

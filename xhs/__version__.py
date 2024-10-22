@@ -1,10 +1,12 @@
-#        .__
-# ___  __|  |__   ______
-# \  \/  /  |  \ /  ___/
-#  >    <|   Y  \\___ \
-# /__/\_ \___|  /____  >
-#       \/    \/     \/
+'''
+Author: liusuxian 382185882@qq.com
+Date: 2024-10-22 21:43:34
+LastEditors: liusuxian 382185882@qq.com
+LastEditTime: 2024-10-22 23:22:56
+Description: 
 
+Copyright (c) 2024 by liusuxian email: 382185882@qq.com, All Rights Reserved.
+'''
 __title__ = "xhs_client"
 __description__ = "xiaohongshu crawl sdk."
 __url__ = "https://github.com:liusuxian/xhs"

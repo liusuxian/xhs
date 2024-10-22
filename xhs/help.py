@@ -398,8 +398,7 @@ def update_session_cookies_from_cookie(session: requests.Session, cookie: str):
     cookie_dict = cookie_str_to_cookie_dict(cookie) if cookie else {}
     if "a1" not in cookie_dict or "webId" not in cookie_dict:
         # a1, web_id = get_a1_and_web_id()
-        # TODO 187d2defea8dz1fgwydnci40kw265ikh9fsxn66qs50000726043
-        cookie_dict |= {"a1": "192b3d00a5brf6dosd3qrtnrldhge1zn0sjokth1w40000207154",
+        cookie_dict |= {"a1": "187d2defea8dz1fgwydnci40kw265ikh9fsxn66qs50000726043",
                         "webId": "ba57f42593b9e55840a289fa0b755374"}
     if "gid" not in cookie_dict:
         cookie_dict |= {
