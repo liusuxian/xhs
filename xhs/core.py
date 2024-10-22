@@ -686,6 +686,21 @@ class XhsClient:
         }
         return self.get(uri, params, is_customer=True)
 
+    def customer_send_code(self, phone: str, zone: str = 86):
+        uri = "/api/cas/sendCode"
+        params = {"phone": phone, "zone": zone}
+        return self.get(uri, params)
+
+    def login_with_verify_code(self, phone: str, code: str, zone: str = 86):
+        uri = "/api/cas/loginWithVerifyCode"
+        data = {
+            "zone": zone,
+            "mobile": phone,
+            "verifyCode": code,
+            "service": "https://creator.xiaohongshu.com",
+        }
+        return self.post(uri, data)
+
     def customer_login(self, ticket: str):
         uri = "/sso/customer_login"
         data = {
@@ -698,6 +713,13 @@ class XhsClient:
 
     def login_from_creator(self):
         uri = "/api/galaxy/user/cas/login"
+        headers = {
+            "referer": "https://creator.xiaohongshu.com/login"
+        }
+        return self.post(uri, None, is_creator=True, headers=headers)
+
+    def user_info_from_creator(self):
+        uri = "/api/galaxy/user/info"
         headers = {
             "referer": "https://creator.xiaohongshu.com/login"
         }
