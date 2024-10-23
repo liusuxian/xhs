@@ -659,22 +659,16 @@ class XhsClient:
         return self.post(uri, data={})
 
     def send_code(self, phone: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
         uri = "/api/sns/web/v2/login/send_code"
         params = {"phone": phone, "zone": zone, "type": "login"}
         return self.get(uri, params)
 
     def check_code(self, phone: str, code: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
         uri = "/api/sns/web/v1/login/check_code"
         params = {"phone": phone, "zone": zone, "code": code}
         return self.get(uri, params)
 
     def login_code(self, phone: str, mobile_token: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
         uri = "/api/sns/web/v2/login/code"
         data = {"mobile_token": mobile_token, "zone": zone, "phone": phone}
         return self.post(uri, data)
@@ -692,31 +686,7 @@ class XhsClient:
         }
         return self.get(uri, params, is_customer=True)
 
-    def customer_send_code(self, phone: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
-        uri = "/api/cas/sendCode"
-        params = {
-            "phone": phone,
-            "zone": zone,
-        }
-        return self.get(uri, params, is_customer=True)
-
-    def login_with_verify_code(self, phone: str, code: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
-        uri = "/api/cas/loginWithVerifyCode"
-        data = {
-            "zone": zone,
-            "mobile": phone,
-            "verifyCode": code,
-            "service": "https://creator.xiaohongshu.com",
-        }
-        return self.post(uri, data, is_customer=True)
-
     def customer_login(self, ticket: str):
-        """ 该接口已通过调试
-        """
         uri = "/sso/customer_login"
         data = {
             "ticket": ticket,
@@ -727,57 +697,11 @@ class XhsClient:
         return self.post(uri, data, is_creator=True)
 
     def login_from_creator(self):
-        """ 该接口已通过调试
-        """
         uri = "/api/galaxy/user/cas/login"
         headers = {
             "referer": "https://creator.xiaohongshu.com/login"
         }
         return self.post(uri, None, is_creator=True, headers=headers)
-
-    def web_verify_code(self, phone: str, zone: str = 86):
-        """ 该接口已通过调试
-        """
-        uri = "/api/cas/customer/web/verify-code"
-        data = {
-            "phone": phone,
-            "zone": zone,
-            "service": "https://creator.xiaohongshu.com"
-        }
-        return self.post(uri, data, is_customer=True)
-
-    def web_service_ticket(self, phone: str, code: str, zone: str = 86, type: str = "phoneVerifyCode", source: str = ""):
-        """ 该接口已通过调试
-        """
-        uri = "/api/cas/customer/web/service-ticket"
-        data = {
-            "phone": phone,
-            "zone": zone,
-            "verify_code": code,
-            "type": type,
-            "source": source,
-            "service": "https://creator.xiaohongshu.com",
-        }
-        return self.post(uri, data, is_customer=True)
-
-    def user_info_from_creator(self):
-        """ 该接口已通过调试
-        """
-        uri = "/api/galaxy/user/info"
-        headers = {
-            "referer": "https://creator.xiaohongshu.com/login"
-        }
-        return self.get(uri, is_creator=True, headers=headers)
-
-    def datacenter_note_base(self, note_id: str):
-        """ 该接口已通过调试（该接口用于获取指定笔记的基础信息）
-        """
-        uri = "/api/galaxy/creator/datacenter/note/base"
-        params = {"note_id": note_id}
-        headers = {
-            "referer": "https://creator.xiaohongshu.com/new/home"
-        }
-        return self.get(uri, params, is_creator=True, headers=headers)
 
     def get_user_collect_notes(self, user_id: str, num: int = 30, cursor: str = ""):
         uri = "/api/sns/web/v2/note/collect/page"
